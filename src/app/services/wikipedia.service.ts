@@ -12,12 +12,24 @@ export class WikipediaService {
 
   constructor(private http: HttpClient) {}
 
+  /**
+   * method to retrieve an article detail data by pageId
+   *
+   * @param pageId article id
+   * @returns the article detail data
+   */
   getArticle(pageId: number): Observable<Article> {
     const url = `${this.baseURL}?format=json&action=query&prop=extracts&exintro&explaintext&utf8&pageids=${pageId}&origin=*`;
 
     return this.http.get<Article>(url, { responseType: 'json' });
   }
 
+  /**
+   * method to retrieve a list of articles that match the search term provided
+   *
+   * @param searchTerm term to perform the search
+   * @returns list of articles
+   */
   getArticles(searchTerm: string): Observable<ArticleList> {
     const url = `${this.baseURL}?action=query&list=search&srsearch=${searchTerm}&format=json&utf8&origin=*`;
 
