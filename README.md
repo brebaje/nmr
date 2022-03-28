@@ -1,5 +1,7 @@
 # Nmr
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/39e498f7-fd3f-443a-9bd2-7cf4af456758/deploy-status)](https://app.netlify.com/sites/thunderous-heliotrope-170ded/deploys)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
 ## Development server
