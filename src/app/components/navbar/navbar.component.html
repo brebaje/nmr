@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <div class="navbar-left--container">
+    <h1 class="navbar-title">NMR</h1>
+  </div>
+
+  <span class="spacer"></span>
+
+  <div class="navbar-right-container" *ngIf="showBackButton$ | async">
+    <button mat-raised-button aria-label="Go back" color="accent" [routerLink]="['../']">
+      <mat-icon>arrow_back</mat-icon>
+      <span class="back-buton--text">Back</span>
+    </button>
+  </div>
+</mat-toolbar>

@@ -1,18 +1,30 @@
 export interface Article {
+  ns: number;
+  title: string;
+  pageid: number;
+  size: number;
+  wordcount: number;
+  snippet: string;
+  timestamp: string;
+}
+
+export interface ArticleDetail {
+  pageid: number;
+  ns: number;
+  title: string;
+  extract: string;
+}
+
+export interface ArticleDetailResponse {
   batchcomplete: string;
   query: {
     pages: {
-      [id: string]: {
-        pageid: number;
-        ns: number;
-        title: string;
-        extract: string;
-      };
+      [pageid: string]: ArticleDetail;
     };
   };
 }
 
-export interface ArticleList {
+export interface ArticleListResponse {
   batchcomplete: string;
   continue: {
     sroffset: number;
@@ -22,14 +34,6 @@ export interface ArticleList {
     searchinfo: {
       totalhits: number;
     };
-    search: {
-      ns: number;
-      title: string;
-      pageid: number;
-      size: number;
-      wordcount: number;
-      snippet: string;
-      timestamp: string;
-    }[];
+    search: Article[];
   };
 }

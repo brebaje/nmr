@@ -1,8 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
-import { Article, ArticleList } from 'src/app/models/api.model';
+import {
+  Article,
+  ArticleDetail,
+  ArticleDetailResponse,
+  ArticleListResponse,
+} from 'src/app/models/api.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,10 +23,12 @@ export class WikipediaService {
    * @param pageId article id
    * @returns the article detail data
    */
-  getArticle(pageId: number): Observable<Article> {
+  getArticle(pageId: number): Observable<ArticleDetail> {
     const url = `${this.baseURL}?format=json&action=query&prop=extracts&exintro&explaintext&utf8&pageids=${pageId}&origin=*`;
 
-    return this.http.get<Article>(url, { responseType: 'json' });
+    return this.http
+      .get<ArticleDetailResponse>(url, { responseType: 'json' })
+      .pipe(map((response) => response.query.pages[pageId]));
   }
 
   /**
@@ -30,9 +37,11 @@ export class WikipediaService {
    * @param searchTerm term to perform the search
    * @returns list of articles
    */
-  getArticles(searchTerm: string): Observable<ArticleList> {
+  getArticles(searchTerm: string): Observable<Article[]> {
     const url = `${this.baseURL}?action=query&list=search&srsearch=${searchTerm}&format=json&utf8&origin=*`;
 
-    return this.http.get<ArticleList>(url, { responseType: 'json' });
+    return this.http
+      .get<ArticleListResponse>(url, { responseType: 'json' })
+      .pipe(map((response) => response.query.search));
   }
 }
