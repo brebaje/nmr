@@ -34,10 +34,6 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ],
-        "brace-style": [
-          "warn",
-          "stroustrup"
         ]
       }
     },

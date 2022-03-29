@@ -1,16 +1,19 @@
+import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
+@Component({
+  selector: 'app-navbar',
+  template: '<p>Mock Navbar Component</p>',
+})
+class MockNavbarComponent {}
+
 describe('AppComponent', () => {
-  /* beforeEach(async () => {
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [RouterTestingModule],
+      declarations: [AppComponent, MockNavbarComponent],
     }).compileComponents();
   });
 
@@ -20,16 +23,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'nmr'`, () => {
+  it(`should have as title 'NMR'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('nmr');
+    expect(app.title).toEqual('NMR');
   });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('nmr app is running!');
-  }); */
 });
