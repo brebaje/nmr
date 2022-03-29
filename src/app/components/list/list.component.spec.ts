@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ListComponent } from './list.component';
 
 describe('ListComponent', () => {
-  let component: ListComponent;
+  /*   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
 
   beforeEach(async () => {
@@ -21,5 +21,5 @@ describe('ListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  }); */
 });

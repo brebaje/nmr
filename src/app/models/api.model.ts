@@ -32,6 +32,8 @@ export interface ArticleListResponse {
   };
   query: {
     searchinfo: {
+      suggestion: string;
+      suggestionsnippet: string;
       totalhits: number;
     };
     search: Article[];
