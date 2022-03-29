@@ -3,11 +3,9 @@
     <div mat-subheader class="list--sub-header">
       <h3>Showing {{ list.length }} results for "{{ searchTerm }}"</h3>
     </div>
-    <mat-divider></mat-divider>
     <mat-list-item class="list-item" role="listitem" *ngFor="let article of list" [routerLink]="['../detail/' + article.pageid]">
       <mat-icon mat-list-icon color="accent">assignment</mat-icon>
-      <span>{{ article.title }}</span>
-      <mat-divider></mat-divider>
+      <span class="list-item--title">{{ article.title }}</span>
     </mat-list-item>
   </mat-list>
 </div>

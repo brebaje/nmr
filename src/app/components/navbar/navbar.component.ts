@@ -13,6 +13,7 @@ export class NavbarComponent {
   showBackButton$: Observable<boolean>;
 
   constructor(private store: Store) {
+    // show button if url includes 'detail' (DetailComponent)
     this.showBackButton$ = this.store.select(selectIfDetailUrl);
   }
 }

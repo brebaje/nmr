@@ -20,6 +20,7 @@ export class DetailComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit(): void {
+    // get article id from route param and dispatch loading action
     this.route.params
       .pipe(
         map((params: Params) => parseInt(params['id'], 10)),
